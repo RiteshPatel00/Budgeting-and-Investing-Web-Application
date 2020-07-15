@@ -41,7 +41,24 @@ var UIController = (function(){
 //GLOBAL MODULE
 var controller = (function(budget, UI){
 
-    var DOMStrings = UIController.getDOMStrings();
+    var setEventListeners = function(){
+
+        var DOMStrings = UIController.getDOMStrings();
+
+        document.querySelector(DOMStrings.inputButton).addEventListener('click', controlAddItem);
+
+        document.addEventListener('keypress', function(event){
+
+            if (event.keyCode === 13 || event.which === 13) {
+                controlAddItem();
+            }
+
+        });
+
+    };
+
+
+
 
 
     var controlAddItem = function(){
@@ -61,22 +78,15 @@ var controller = (function(budget, UI){
         
     }
 
-
-    document.querySelector(DOMStrings.inputButton).addEventListener('click', controlAddItem);
-
-
-    document.addEventListener('keypress', function(event){
-
-        if (event.keyCode === 13 || event.which === 13) {
-            controlAddItem();
+    return {
+        init: function(){
+            setEventListeners();
         }
-
-    })
-
+    };
 
 })(budgetController, UIController);
 
 
 
-
+controller.init();
 
