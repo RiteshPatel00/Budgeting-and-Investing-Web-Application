@@ -21,7 +21,10 @@ body {
     position: relative;
     height: 200vh;
     font-weight: 400;
+    overflow: hidden;
 }
+
+
 
 .right { float: right; }
 .red { color: #8B8FAE !important; }

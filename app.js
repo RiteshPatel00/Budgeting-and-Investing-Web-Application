@@ -10,16 +10,45 @@ var budgetController = (function(){
 //UI MODULE
 var UIController = (function(){
 
-    //Code
+    //In order to avoid repeating strings
+    var DOMStrings = {
+        inputButton: '.add__btn',
+        inputType: '.add__type',
+        inputDescription: '.add__description',
+        inputValue:'.add__value'
+    }
+
+    return{
+        getInput: function(){
+
+            return{
+            // Either Income or Expenses
+                type: document.querySelector(DOMStrings.inputType).value,
+                description: document.querySelector(DOMStrings.inputDescription).value,
+                value: document.querySelector(DOMStrings.inputValue).value
+            };
+        },
+
+        getDOMStrings: function(){
+            return DOMStrings;
+        }
+
+    };
 
 })();
+
 
 //GLOBAL MODULE
 var controller = (function(budget, UI){
 
+    var DOMStrings = UIController.getDOMStrings();
+
 
     var controlAddItem = function(){
         // 1. Get the field input data
+        var input = UI.getInput();
+        console.log(input);
+        console.log("working");
 
         // 2. Add the item to the budget controller
 
@@ -29,11 +58,11 @@ var controller = (function(budget, UI){
 
         // 5. Display the budget on UI
 
-        console.log("working")
+        
     }
 
 
-    document.querySelector('.add__btn').addEventListener('click', controlAddItem);
+    document.querySelector(DOMStrings.inputButton).addEventListener('click', controlAddItem);
 
 
     document.addEventListener('keypress', function(event){
@@ -43,9 +72,6 @@ var controller = (function(budget, UI){
         }
 
     })
-
-
-
 
 
 })(budgetController, UIController);
