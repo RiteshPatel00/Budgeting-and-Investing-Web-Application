@@ -60,7 +60,7 @@ body {
 
 .budget__value {
     font-weight: 300;
-    font-size: 46px;
+    font-size: 25px;
     text-align: center;
     margin-bottom: 70px;
     letter-spacing: 2px;
@@ -126,7 +126,7 @@ body {
 }
 
 .add__container {
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
 }
 
