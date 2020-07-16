@@ -13,7 +13,18 @@ var budgetController = (function(){
         this.value = value;
    };
 
+   var calculateTotal = function(type){
 
+        var sum = 0;
+        data.allItems[type].forEach(function(element){
+            sum += element.value;
+        });
+
+        data.totals[type] = sum;
+
+
+     
+   };
 
    var data = {
         allItems: {
@@ -24,8 +35,13 @@ var budgetController = (function(){
         totals: {
             exp: 0,
             inc: 0
-        }
+        },
+
+        budget: 0,
+        percentageOfIncome: -1
     }
+
+
 
 
     return{
@@ -58,10 +74,41 @@ var budgetController = (function(){
 
         },
 
+        calculateBudget: function(){
+
+            // Calculate total income and expenses
+            calculateTotal('exp');
+            calculateTotal('inc');
+
+            // Calculate the budget
+            data.budget = data.totals.inc - data.totals.exp;
+
+            // Calculate the percentage of income that was spent
+            if(data.totals.inc > 0){
+                data.percentageOfIncome = Math.round((data.totals.exp / data.totals.inc) * 100);
+            }
+            else{
+                data.percentage = -1
+            }
+
+        },
+
+        getBudget: function(){
+            return {
+                budget: data.budget,
+                totalIncome: data.totals.inc,
+                totalExpense: data.totals.exp,
+                percentage: data.percentageOfIncome
+            };
+        },
+
+
         testing: function(){
             console.log(data)
         }
     }
+
+
 
 
 
@@ -106,7 +153,6 @@ var UIController = (function(){
                 html = `<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix">
                 <div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline">
                 </i></button></div></div></div>`;
-                console.log(html)
             }
 
 
@@ -127,7 +173,6 @@ var UIController = (function(){
 
 
             // 3. Insert the HTML into the DOM
-            console.log(typeof(newHtmlString))
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtmlString)
 
 
@@ -189,12 +234,14 @@ var controller = (function(budget, UI){
     var updateBudget = function(){
                 
         // Calculate the budget
-
+        budgetController.calculateBudget()
 
         // Return the budget
+        var budget = budgetController.getBudget()
 
 
         // Display the budget on UI
+        console.log(budget)
 
     }
 
@@ -207,7 +254,7 @@ var controller = (function(budget, UI){
         input = UI.getInput();
 
         // Description should not be empty and amount should be a number
-        if(input.description !== "" && !isNaN(input.value) && input.value > 0){
+        if(input.description.trim().length !== 0 && !isNaN(input.value) && input.value > 0){
 
             // Add the item to the budget controller
             newItem = budgetController.addItem(input.type, input.description, input.value);
