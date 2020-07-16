@@ -87,10 +87,10 @@ var UIController = (function(){
         getInput: function(){
 
             return{
-                // Either Income or Expenses
+                // Either Income or Expense
                 type: document.querySelector(DOMStrings.inputType).value,
                 description: document.querySelector(DOMStrings.inputDescription).value,
-                value: document.querySelector(DOMStrings.inputValue).value
+                value: parseFloat(document.querySelector(DOMStrings.inputValue).value)
             };
         },
 
@@ -149,6 +149,7 @@ var UIController = (function(){
                 current.value = "";
             });
 
+
             fieldsArray[0].focus();
 
         },
@@ -185,24 +186,44 @@ var controller = (function(budget, UI){
 
 
 
+    var updateBudget = function(){
+                
+        // Calculate the budget
+
+
+        // Return the budget
+
+
+        // Display the budget on UI
+
+    }
+
+
+
     var controlAddItem = function(){
         var input, newItem;
 
-        // 1. Get the field input data
+        // Get the field input data
         input = UI.getInput();
 
-        // 2. Add the item to the budget controller
-        newItem = budgetController.addItem(input.type, input.description, input.value)
-        
-        // 3. Add the item to the UI
-        UIController.addListItem(newItem, input.type)
+        // Description should not be empty and amount should be a number
+        if(input.description !== "" && !isNaN(input.value) && input.value > 0){
 
-        // 4. Clear the input fields
-        UIController.clearInputFields();
-        
-        // 5. Calculate the budget 
+            // Add the item to the budget controller
+            newItem = budgetController.addItem(input.type, input.description, input.value);
+            
+            // Add the item to the UI
+            UIController.addListItem(newItem, input.type);
 
-        // 6. Display the budget on UI
+            // Clear the input fields
+            UIController.clearInputFields();
+
+            // Calculate and update the budget
+            updateBudget();
+        };
+
+
+
 
         
     }
