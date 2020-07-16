@@ -21,7 +21,7 @@ body {
     position: relative;
     height: 200vh;
     font-weight: 400;
-    overflow: hidden;
+    overflow: visible;
 }
 
 
@@ -238,7 +238,7 @@ h2 {
     margin-left: 20px;
     transition: transform 0.3s;
     font-size: 11px;
-    background-color: #FFDAD9;
+    background-color: #a2a5be;
     padding: 3px;
     border-radius: 3px;
     width: 32px;
@@ -250,8 +250,11 @@ h2 {
     color: #89AE8E;
 }
 
+.expenses .item__percentage{
+    color: white;
+}
+
 .expenses .item__value,
-.expenses .item__percentage,
 .expenses .item__delete--btn {
     color: #8B8FAE;
 }
@@ -281,7 +284,7 @@ h2 {
 
 
 .unpaid {
-    background-color: #FFDAD9 !important;
+    background-color: #c7c0c0 !important;
     cursor: pointer;
     color: #8B8FAE;
 
