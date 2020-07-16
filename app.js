@@ -13,13 +13,59 @@ var budgetController = (function(){
         this.value = value;
    };
 
-   var allExpenses = [];
-   var allIncomes = [];
-   var totalExpense = 0;
-   var totalIncome
 
 
-})()
+   var data = {
+        allItems: {
+            exp: [],
+            inc: []
+        },
+
+        totals: {
+            exp: 0,
+            inc: 0
+        }
+    }
+
+
+    return{
+        addItem: function(type, des, val){
+
+            var newItem, ID;
+
+            //Create new ID
+            if(data.allItems[type].length > 0){
+                ID = data.allItems[type][data.allItems[type].length-1].id + 1
+            }
+            else{
+                ID = 0
+            }
+
+
+
+            //Create either and Expense or Income object
+            if(type === 'exp'){
+                newItem = new Expense(ID, des, val)
+            }
+
+            else if(type === 'inc'){
+                newItem = new Income(ID,des, val)
+            }
+
+            //Push it into our data structure
+            data.allItems[type].push(newItem);
+            return newItem;
+
+        },
+
+        testing: function(){
+            console.log(data)
+        }
+    }
+
+
+
+})();
 
 
 
@@ -39,7 +85,7 @@ var UIController = (function(){
         getInput: function(){
 
             return{
-            // Either Income or Expenses
+                // Either Income or Expenses
                 type: document.querySelector(DOMStrings.inputType).value,
                 description: document.querySelector(DOMStrings.inputDescription).value,
                 value: document.querySelector(DOMStrings.inputValue).value
@@ -79,12 +125,13 @@ var controller = (function(budget, UI){
 
 
     var controlAddItem = function(){
+        var input, newItem;
+
         // 1. Get the field input data
-        var input = UI.getInput();
-        console.log(input);
-        console.log("working");
+        input = UI.getInput();
 
         // 2. Add the item to the budget controller
+        newItem = budgetController.addItem(input.type, input.description, input.value)
 
         // 3. Add the item to the UI
 
@@ -97,6 +144,7 @@ var controller = (function(budget, UI){
 
     return {
         init: function(){
+            console.log("started")
             setEventListeners();
         }
     };
@@ -104,6 +152,4 @@ var controller = (function(budget, UI){
 })(budgetController, UIController);
 
 
-
 controller.init();
-
