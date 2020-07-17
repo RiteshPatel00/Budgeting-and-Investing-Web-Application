@@ -177,7 +177,28 @@ var UIController = (function(){
         expenseLabel: '.budget__expenses--value',
         percentageLabel: '.budget__expenses--percentage',
         container: '.container',
-        expensePercentage: '.item__percentage'
+        expensePercentage: '.item__percentage',
+        date: '.budget__title--month'
+
+    }
+
+    var formatNumber = function(number, type){
+
+        var number, sign;
+
+        number = Math.abs(number);
+        number = number.toFixed(2);
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        refinedNumber = numberWithCommas(number);
+
+        type === 'exp' ? sign = '-' : sign = '+';
+
+        return sign + ' ' + refinedNumber;
+
 
     }
 
@@ -220,7 +241,7 @@ var UIController = (function(){
             
             newHtmlString = html.replace('%id%', obj.id)
             newHtmlString = newHtmlString.replace('%description%', obj.description)
-            newHtmlString = newHtmlString.replace('%value%', obj.value)
+            newHtmlString = newHtmlString.replace('%value%', formatNumber(obj.value, type))
 
 
             // 3. Insert the HTML into the DOM
@@ -259,9 +280,11 @@ var UIController = (function(){
 
         displayBudget: function(obj){
 
-            document.querySelector(DOMStrings.budgetValue).textContent = obj.budget
-            document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalIncome
-            document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExpenses
+            
+
+            document.querySelector(DOMStrings.budgetValue).textContent = formatNumber(obj.budget, obj.budget > 0 ? 'inc' : 'exp'); 
+            document.querySelector(DOMStrings.incomeLabel).textContent = formatNumber(obj.totalIncome, 'inc');
+            document.querySelector(DOMStrings.expenseLabel).textContent = formatNumber(obj.totalExpenses, 'exp');
 
             if(obj.percentage > 0){
                 document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage + '%'
@@ -278,28 +301,38 @@ var UIController = (function(){
             
             var fields = document.querySelectorAll(DOMStrings.expensePercentage);
            
-            console.log(fields)
-
             var nodeListForEach = function(list, callback){
                 for (var i = 0; i < list.length; i++){
-                    console.log( 'working');
                     callback(list[i], i);
                 }
             };
 
             nodeListForEach(fields, function(current,index){
 
-                console.log("hello")
                 if(percs[index] > 0){
                     current.textContent = percs[index] + '%';
                 }
                 else{
-                    current.textContent = '----';
+                    current.textContent = '---';
                 }
                 
             });
 
         },
+
+        displayDate: function(){
+
+            var present, year, month;
+
+            present = new Date();
+            month = present.getMonth();
+            year = present.getFullYear();
+
+            document.querySelector(DOMStrings.date).textContent = month.toString().length > 1 ? month + '/' + year
+                                                                                              : '0' + month + '/' + year;
+
+        },
+
 
         getDOMStrings: function(){
             return DOMStrings;
@@ -420,7 +453,7 @@ var controller = (function(budget, UI){
 
     return {
         init: function(){
-            console.log("started")
+            UIController.displayDate();
             setEventListeners();
         }
     };
