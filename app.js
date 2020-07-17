@@ -97,7 +97,7 @@ var budgetController = (function(){
             return {
                 budget: data.budget,
                 totalIncome: data.totals.inc,
-                totalExpense: data.totals.exp,
+                totalExpenses: data.totals.exp,
                 percentage: data.percentageOfIncome
             };
         },
@@ -127,7 +127,13 @@ var UIController = (function(){
         inputDescription: '.add__description',
         inputValue:'.add__value',
         incomeContainer: '.income__list',
-        expenseContainer: '.expenses__list'
+        expenseContainer: '.expenses__list',
+        budgetValue:'.budget__value',
+        incomeLabel: '.budget__income--value',
+        expenseLabel: '.budget__expenses--value',
+        percentageLabel: '.budget__expenses--percentage',
+        container: '.container'
+
     }
 
     return{
@@ -176,8 +182,6 @@ var UIController = (function(){
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtmlString)
 
 
-
-
         },
 
 
@@ -196,6 +200,22 @@ var UIController = (function(){
 
 
             fieldsArray[0].focus();
+
+        },
+
+        displayBudget: function(obj){
+
+            document.querySelector(DOMStrings.budgetValue).textContent = obj.budget
+            document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalIncome
+            document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExpenses
+
+            if(obj.percentage > 0){
+                document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage + '%'
+            }
+            else{
+                document.querySelector(DOMStrings.percentageLabel).textContent = '----'
+            }
+
 
         },
 
@@ -225,10 +245,15 @@ var controller = (function(budget, UI){
 
         });
 
+        document.querySelector(DOMStrings.container).addEventListener('click', controlDeleteItem);
+
+
     };
 
 
-
+    var controlDeleteItem = function(event){
+        console.log(event.target);
+    };
 
 
     var updateBudget = function(){
@@ -241,7 +266,7 @@ var controller = (function(budget, UI){
 
 
         // Display the budget on UI
-        console.log(budget)
+        UIController.displayBudget(budget)
 
     }
 
@@ -269,11 +294,9 @@ var controller = (function(budget, UI){
             updateBudget();
         };
 
-
-
-
         
-    }
+    };
+
 
     return {
         init: function(){
@@ -286,3 +309,5 @@ var controller = (function(budget, UI){
 
 
 controller.init();
+
+
