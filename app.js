@@ -156,7 +156,7 @@ var UIController = (function(){
 
             if(type === 'inc'){
                 element = DOMStrings.incomeContainer
-                html = `<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix">
+                html = `<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix">
                 <div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline">
                 </i></button></div></div></div>`;
             }
@@ -164,7 +164,7 @@ var UIController = (function(){
 
             else if (type === 'exp'){
                 element = DOMStrings.expenseContainer
-                html = `<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix">
+                html = `<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix">
                 <div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete">
                 <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>`
             }
@@ -252,7 +252,16 @@ var controller = (function(budget, UI){
 
 
     var controlDeleteItem = function(event){
-        console.log(event.target);
+
+        var elementID;
+
+        elementID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+        if (elementID){
+
+
+        }
+
     };
 
 
