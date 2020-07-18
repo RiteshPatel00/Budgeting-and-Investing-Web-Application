@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <title>Compound Interest Calculator</title>
+    </head>
+    <body>
+        
+        <div class="top">
+            <div class="budget">
+                <div class="budget__title">
+                    Investment Portfolio<span class="budget__title--month"></span>:
+                </div>
+                
+                
+                <div class="budget__income clearfix">
+                    <div class="budget__income--text">Total value of Investment</div>
+                    <div class="right">
+                        <div class="budget__income--value">+ 0.00</div>
+                    </div>
+                </div>
+                
+                <div class="budget__expenses clearfix">
+                    <div class="budget__expenses--text">Total Interest Accumulated</div>
+                    <div class="right clearfix">
+                        <div class="budget__expenses--value">- 0.00</div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="bottom">
+            <div class="add">
+                <div class="add__container">
+                    <h2 class="compounded" style="font-size: 25px">Interest Compounded</h2>   
+                                   <select class="add__type" style="width: 100px;">
+                        <option value="week" selected>Weekly</option>
+                        <option value="bi-week">Bi-Weekly</option>
+                        <option value="month">Monthly</option>
+                        <option value="quarter">Quarterly</option>
+                        <option value="half-year">Semi-Anually</option>
+                        <option value="year">Anually</option>
+                    </select>
+
+                    <select class="add__compounded" style="width: 100px;">
+                        <option value="month">Monthly</option>
+                        <option value="quarter">Quarterly</option>
+                        <option value="half-year">Semi-Anually</option>
+                        <option value="year">Anually</option>
+                    </select>
+                    <input id="years-to-grow-range" class="field-input field-with-range-slider" name="years-to-grow-range" type="range" min="1" step="1" max="60" value="30" aria-hidden="true">
+                    <input type="number" class="add__description" placeholder="Inital Investment">
+                    <input type="number" class="add__value" placeholder="Regular Addition">
+                    <input type="number" class="add__interest" placeholder="Interest Rate">
+                    <button class="add__btn">Calculate</button>
+                </div>
+            </div>
+        </div>
+                
+            
+        
+        <script src="app.js"></script>
+    </body>
+</html>
