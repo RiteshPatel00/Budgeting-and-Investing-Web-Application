@@ -362,6 +362,8 @@ var controller = (function(budget, UI){
 
         document.querySelector(DOMStrings.container).addEventListener('click', controlDeleteItem);
 
+        document.querySelector(DOMStrings.inputType).addEventListener('change', UIController.changedType)
+
 
     };
 
