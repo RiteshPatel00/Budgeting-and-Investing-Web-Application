@@ -24,8 +24,6 @@ body {
     overflow: visible;
 }
 
-
-
 .right { float: right; }
 
 
@@ -67,12 +65,12 @@ body {
 
 .budget__income {
     margin-bottom: 10px;
-    background-color: #00a6a4;
+    background-color: rgb(72, 166, 132);
     border-radius: 100px;
 }
 
 .budget__expenses {
-    background-color: #ff9331;
+    background-color: rgb(65, 125, 176);
     border-radius: 100px;
 
 }
@@ -99,10 +97,16 @@ body {
 **********************************************/
 
 /***** FORM *****/
+
+.bottom{
+    position: relative;
+}
+
 .add {
     padding: 200px;
     border-bottom: 1px solid #e7e7e7;
     background-color: #d4d4d4;
+
 }
 
 .add__container {
@@ -110,13 +114,13 @@ body {
     text-align: center;
 }
 
-.add__type,
-.add__compounded {
-    position: relative;
-    right: 250px;
-    bottom: 100px;
+.add__addition{
+    position: absolute;
+    top: 10%;
+    left: 78%;
+ 
     font-family: 'Roboto Mono', monospace;
-    width: 55px;
+    width: 150px;
     border: 1px solid #e7e7e7;
     height: 44px;
     font-size: 14px;
@@ -125,11 +129,103 @@ body {
     margin-right: 10px;
     font-weight: 300;
     transition: border 0.3s;
+
 }
 
-.add__description,
-.add__interest,
-.add__value {
+.add__compounded{
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    margin: auto;
+    font-family: 'Roboto Mono', monospace;
+    width: 150px;
+    border: 1px solid #e7e7e7;
+    height: 44px;
+    font-size: 14px;
+    color: inherit;
+    background-color: #fff;
+    font-weight: 300;
+    transition: border 0.3s;
+}
+
+.years_to_grow_range{
+    position: absolute;
+    left: 40%;
+    top: 73%;
+    margin: auto;
+
+}
+
+.inital__investment{
+
+    position: absolute;
+    left: 2%;
+    top: 10%;
+    margin: auto;
+
+
+}
+
+.regular__addition{
+
+    position: absolute;
+    left: 40%;
+    top: 10%;
+    margin: auto;
+
+
+}
+
+.interest__rate{
+
+    position: absolute;
+    left: 2%;
+    top: 40%;
+    margin: auto;
+
+
+}
+
+
+
+.addition{
+    font-size: 15px;
+    position: absolute;
+    top: 5%;
+    left: 78%;
+}
+
+.compounded{
+    font-size: 15px;
+    position: absolute;
+    left: 40%;
+    top: 35%;
+    margin: auto;
+}
+
+
+
+.years__grow{
+
+    position: absolute;
+    left: 2%;
+    top: 70%;
+    margin: auto;
+
+
+}
+
+
+
+
+
+
+.inital__investment,
+.interest__rate,
+.regular__addition,
+.years__grow,
+.add__addition,
+.add__compounded {
     border: 1px solid #e7e7e7;
     background-color: #fff;
     color: inherit;
@@ -141,14 +237,31 @@ body {
     transition: border 0.3s;
 }
 
-.add__description { width: 400px;}
-.add__value { width: 400px;}
-.add__interest{ width: 400px; }
+
+
+
+
+
+
+
+
+
+
+.inital__investment, 
+.regular__addition, 
+.interest__rate,
+.years__grow
+{ width: 25%;}
+
+
 
 .add__btn{
+    position: absolute;
+    top: 70%;
+    left: 70%;
     border: none;
     border-radius: 0px;
-    display: inline;
+
     width: auto;
     padding: 0.4em 1em 0.6em;
     text-align: center;
@@ -158,22 +271,25 @@ body {
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;
     font-size: 14px;
-    background-color: #00b6de;
+    background-color: #9400D3;
     color: white;
 
 }
 }
 
-.add__btn:active { transform: translateY(2px); }
+
+
 
 .add__compounded:focus,
-.add__type:focus,
-.add__description:focus,
-.add__value:focus {
+.add__addition:focus,
+.inital__investment:focus,
+.regular__addition:focus,
+.interest__rate:focus,
+.years__grow:focus {
 
 
     outline: none;
-    border: 1px solid #00a6a4;
+    border: 1px solid rgb(72, 166, 132);
 
 }
 

@@ -27,8 +27,8 @@ body {
 
 
 .right { float: right; }
-.red { color: #ff9331 !important; }
-.red-focus:focus { border: 1px solid #ff9331 !important; }
+.red { color: rgb(65, 125, 176) !important; }
+.red-focus:focus { border: 1px solid rgb(65, 125, 176) !important; }
 
 /**********************************************
 *** TOP PART
@@ -74,12 +74,12 @@ body {
 
 .budget__income {
     margin-bottom: 10px;
-    background-color: #00a6a4;
+    background-color: rgb(72, 166, 132);
     border-radius: 100px;
 }
 
 .budget__expenses {
-    background-color: #ff9331;
+    background-color: rgb(65, 125, 176);
     border-radius: 100px;
 
 }
@@ -180,7 +180,7 @@ body {
 
 
     outline: none;
-    border: 1px solid #00a6a4;
+    border: 1px solid rgb(72, 166, 132);
 
 }
 
@@ -214,8 +214,8 @@ h2 {
     margin-bottom: 15px;
 }
 
-.income__title { color: #00a6a4; }
-.expenses__title { color: #ff9331; }
+.income__title { color: rgb(72, 166, 132); }
+.expenses__title { color: rgb(65, 125, 176); }
 
 .item {
     padding: 13px;
@@ -239,7 +239,7 @@ h2 {
     margin-left: 20px;
     transition: transform 0.3s;
     font-size: 11px;
-    background-color: #ff9331;
+    background-color: rgb(65, 125, 176);
     padding: 3px;
     border-radius: 3px;
     width: 32px;
@@ -248,7 +248,7 @@ h2 {
 
 .income .item__value,
 .income .item__delete--btn {
-    color: #00a6a4;
+    color: rgb(72, 166, 132);
 }
 
 .expenses .item__percentage{
@@ -257,7 +257,7 @@ h2 {
 
 .expenses .item__value,
 .expenses .item__delete--btn {
-    color: #ff9331;
+    color: rgb(65, 125, 176);
 }
 
 
@@ -287,7 +287,7 @@ h2 {
 .unpaid {
     background-color: #c7c0c0 !important;
     cursor: pointer;
-    color: #ff9331;
+    color: rgb(65, 125, 176);
 
 }
 

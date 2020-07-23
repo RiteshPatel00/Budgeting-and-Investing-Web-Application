@@ -39,8 +39,9 @@
         <div class="bottom">
             <div class="add">
                 <div class="add__container">
-                    <h2 class="compounded" style="font-size: 25px">Interest Compounded</h2>   
-                                   <select class="add__type" style="width: 100px;">
+                    <h2 class="compounded">Interest Compounded:</h2>   
+                    <h2 class="addition">Regular Addition:</h2>
+                                   <select class="add__addition" >
                         <option value="week" selected>Weekly</option>
                         <option value="bi-week">Bi-Weekly</option>
                         <option value="month">Monthly</option>
@@ -49,16 +50,17 @@
                         <option value="year">Anually</option>
                     </select>
 
-                    <select class="add__compounded" style="width: 100px;">
+                    <select class="add__compounded">
                         <option value="month">Monthly</option>
                         <option value="quarter">Quarterly</option>
                         <option value="half-year">Semi-Anually</option>
                         <option value="year">Anually</option>
                     </select>
-                    <input id="years-to-grow-range" class="field-input field-with-range-slider" name="years-to-grow-range" type="range" min="1" step="1" max="60" value="30" aria-hidden="true">
-                    <input type="number" class="add__description" placeholder="Inital Investment">
-                    <input type="number" class="add__value" placeholder="Regular Addition">
-                    <input type="number" class="add__interest" placeholder="Interest Rate">
+                    <input class="years_to_grow_range" type="range" min="1" step="1" max="60" value="30" aria-hidden="true">
+                    <input type="number" class="years__grow" placeholder="Years To Grow">
+                    <input type="number" class="inital__investment" placeholder="Inital Investment">
+                    <input type="number" class="regular__addition" placeholder="Regular Addition">
+                    <input type="number" class="interest__rate" placeholder="Interest Rate">
                     <button class="add__btn">Calculate</button>
                 </div>
             </div>
