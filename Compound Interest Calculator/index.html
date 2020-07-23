@@ -56,7 +56,17 @@
                         <option value="half-year">Semi-Anually</option>
                         <option value="year">Anually</option>
                     </select>
-                    <input class="years_to_grow_range" type="range" min="1" step="1" max="60" value="30" aria-hidden="true">
+
+                    
+                       
+                    <input class="years_to_grow_range" type="range" value="1" 
+                           min="1" max="100" onchange="rangeSlide(value)" onmousemove="rangeSlide(value)">
+
+                    <script>
+                       function rangeSlide(val){
+                            document.querySelector('.years__grow').value = val;
+                        }
+                        </script>
                     <input type="number" class="years__grow" placeholder="Years To Grow">
                     <input type="number" class="inital__investment" placeholder="Inital Investment">
                     <input type="number" class="regular__addition" placeholder="Regular Addition">
