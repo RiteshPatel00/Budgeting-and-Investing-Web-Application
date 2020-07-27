@@ -39,7 +39,7 @@ body {
     position: relative;
 }
 
-.budget {
+.investment {
     position: absolute;
     width: 350px;
     top: 50%;
@@ -48,7 +48,7 @@ body {
     color: #fff;
 }
 
-.budget__title {
+.investment__title {
     font-size: 30px;
     text-align: center;
     margin-bottom: 10px;
@@ -57,34 +57,34 @@ body {
 
 
 
-.budget__income,
-.budget__expenses {
+.investment__total,
+.investment__interest {
     padding: 12px;
     text-transform: uppercase;
 }
 
-.budget__income {
+.investment__total {
     margin-bottom: 10px;
     background-color: rgb(72, 166, 132);
     border-radius: 100px;
 }
 
-.budget__expenses {
+.investment__interest {
     background-color: rgb(65, 125, 176);
     border-radius: 100px;
 
 }
 
-.budget__income--text,
-.budget__expenses--text {
+.investment__total--text,
+.investment__interest--text {
     float: left;
     font-size: 13px;
     color: #000000;
     margin-top: 2px;
 }
 
-.budget__income--value,
-.budget__expenses--value {
+.investment__total--value,
+.investment__interest--value {
     letter-spacing: 1px;
     float: left;
 }
@@ -153,6 +153,7 @@ body {
     left: 40%;
     top: 73%;
     margin: auto;
+    width: 200px;
 
 }
 
@@ -200,6 +201,14 @@ body {
     position: absolute;
     left: 40%;
     top: 35%;
+    margin: auto;
+}
+
+.between{
+    font-size: 15px;
+    position: absolute;
+    left: 2%;
+    top: 65%;
     margin: auto;
 }
 
