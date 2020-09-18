@@ -51,6 +51,10 @@ body {
     display: grid;
 }
 
+
+a { color: #ffffff; }
+
+
 .budget {
     position: absolute;
     width: 350px;

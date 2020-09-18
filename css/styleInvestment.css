@@ -46,8 +46,11 @@ body {
     position: relative;
     display: flex;
     display: grid;
+    
 }
 
+
+a { color: #ffffff; }
 
 .investment {
     position: absolute;
