@@ -1,4 +1,4 @@
-//BUDGET MOODULE
+//INVESTMENT MOODULE
 var investmentController = (function(){
 
 
@@ -6,8 +6,7 @@ var investmentController = (function(){
 
    var data = {
         totalInvestmentValue: 0,
-        totalInterest: 0,
-        totalDeposited: 0
+        totalInterest: 0
     }
 
 
@@ -15,16 +14,61 @@ var investmentController = (function(){
 
     return{
 
-        calculateTotal : function(inital, regularAddition, additionFrequency, rate, 
+        calculateTotal : function(inital, regularAddition, rate, 
                                  compoundFrequency, years){
 
+            var inital, regularAddition, rate, compoundFrequency, years, total, monthlyContributions;
 
-        data.totalInvestmentValue = inital + regularAddition + rate + years;
-        data.totalInterest = years;
+            inital = parseFloat(inital);
+            regularAddition = parseFloat(regularAddition)
+            rate = parseFloat(rate) / 100
+            years = years
+
+            switch(compoundFrequency){
+
+                case "month":
+                    compoundFrequency = 12
+                    break;
+
+                case "quarter":
+                    compoundFrequency = 4
+                    break;
+
+                case "half-year":
+                    compoundFrequency = 2
+                    break;
+
+                case "year":
+                    compoundFrequency = 1
+                    break;
+            }
 
 
-        console.log(additionFrequency)
-        console.log(compoundFrequency)
+            total = inital * Math.pow((1 + (rate) / compoundFrequency), years * compoundFrequency)
+
+            if(typeof(regularAddition) == "number" && regularAddition != 0){
+                monthlyContributions = ((regularAddition * Math.pow((1 + (rate) / 12), years * 12)) - regularAddition) / ((rate) / 12)
+
+            }
+
+            else{
+                monthlyContributions = 0;
+            }
+        
+            data.totalInvestmentValue = total + monthlyContributions;
+
+            var deposited = inital + (years * 12 * regularAddition)
+
+            data.totalInterest = total + monthlyContributions - deposited;
+
+            console.log(data.totalInterest);
+            console.log(data.totalInvestmentValue);
+            console.log(inital)
+            console.log(regularAddition)
+            console.log(rate)
+            console.log(compoundFrequency)
+            console.log(total)
+
 
 
      
@@ -61,7 +105,7 @@ var UIController = (function(){
     //In order to avoid repeating strings
     var DOMStrings = {
         inputButton: '.add__btn',
-        additionFrequency: '.add__addition',
+        // additionFrequency: '.add__addition',
         compoundFrequency: '.add__compounded',
         initalAmount: '.inital__investment',
         yearsToGrow: '.years__grow',
@@ -99,7 +143,7 @@ var UIController = (function(){
 
                 inital: document.querySelector(DOMStrings.initalAmount).value,
                 regularAddition: document.querySelector(DOMStrings.regularAddition).value,
-                additionFrequency: document.querySelector(DOMStrings.additionFrequency).value,
+                // additionFrequency: document.querySelector(DOMStrings.additionFrequency).value,
                 rate: document.querySelector(DOMStrings.interestRate).value,
                 compoundFrequency: document.querySelector(DOMStrings.compoundFrequency).value,
                 years: document.querySelector(DOMStrings.yearsToGrow).value
@@ -155,10 +199,10 @@ var controller = (function(investment, UI){
         input = UI.getInput();
                 
         // Calculate the total returns
-        if(input.inital > 0 && input.regularAddition >= 0 && 
+        if(input.inital > 0 && input.regularAddition >= 0 && input.regularAddition !== "" && 
             input.rate > 0 && input.years >= 1 && input.years <= 100){
 
-            investmentController.calculateTotal(input.inital, input.regularAddition, input.additionFrequency,
+            investmentController.calculateTotal(input.inital, input.regularAddition,
                                                 input.rate, input.compoundFrequency, input.years)
 
             // Return the total

@@ -39,6 +39,16 @@ body {
     position: relative;
 }
 
+
+.link-switch{
+    text-align: center;
+    margin: auto;
+    position: relative;
+    display: flex;
+    display: grid;
+}
+
+
 .investment {
     position: absolute;
     width: 350px;
@@ -61,6 +71,7 @@ body {
 .investment__interest {
     padding: 12px;
     text-transform: uppercase;
+    width: 150%;
 }
 
 .investment__total {
@@ -114,7 +125,7 @@ body {
     text-align: center;
 }
 
-.add__addition{
+/*.add__addition{
     position: absolute;
     top: 10%;
     left: 78%;
@@ -131,7 +142,7 @@ body {
     transition: border 0.3s;
 
 }
-
+*/
 .add__compounded{
     position: absolute;
     left: 40%;
@@ -189,12 +200,36 @@ body {
 
 
 
-.addition{
+/*.addition{
     font-size: 15px;
     position: absolute;
     top: 5%;
     left: 78%;
+}*/
+
+.dollar1,
+.dollar2,
+.percent{
+    font-size: 15px;
+    position: absolute;
+    margin: auto;
 }
+
+.dollar1{
+    left: 0.5%;
+    top: 12%;
+}
+
+.dollar2{
+    left: 38.5%;
+    top: 12%;
+}
+
+.percent{
+    left: 0.5%;
+    top: 42%;
+}
+
 
 .compounded{
     font-size: 15px;
@@ -283,7 +318,7 @@ body {
     color: white;
 
 }
-}
+
 
 
 

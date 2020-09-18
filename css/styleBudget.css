@@ -42,6 +42,15 @@ body {
     position: relative;
 }
 
+
+.link-switch{
+    text-align: center;
+    margin: auto;
+    position: relative;
+    display: flex;
+    display: grid;
+}
+
 .budget {
     position: absolute;
     width: 350px;
@@ -71,6 +80,7 @@ body {
     padding: 12px;
     text-transform: uppercase;
 }
+
 
 .budget__income {
     margin-bottom: 10px;
