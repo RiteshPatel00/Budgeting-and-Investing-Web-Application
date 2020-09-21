@@ -4,7 +4,7 @@ made with VanillaJS, HTML and CSS
 
 
 | [:chart_with_upwards_trend: Getting Started](#getting-started) | [:camera: Screenshots](#screenshots) |
-| --------------- | -------- | ----------- |
+
 
 
 ## Getting Started
