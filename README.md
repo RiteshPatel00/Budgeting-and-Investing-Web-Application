@@ -28,11 +28,11 @@ git clone https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Applicati
 
 
 ## Screenshots
-![alt text](https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Application/blob/master/Budgeting-and-Investing-Web-Application/ScreenShots/Budget.png?raw=true)
+![alt text](https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Application/blob/master/ScreenShots/Budget.png?raw=true)
 
 <br>
 
-![alt text](https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Application/blob/master/Budgeting-and-Investing-Web-Application/ScreenShots/Investment.png?raw=true)
+![alt text](https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Application/blob/master/Investment.png?raw=true)
 
 <br>
 
