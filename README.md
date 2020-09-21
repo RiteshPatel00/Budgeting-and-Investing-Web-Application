@@ -32,7 +32,7 @@ git clone https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Applicati
 
 <br>
 
-![alt text](https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Application/blob/master/Investment.png?raw=true)
+![alt text](https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Application/blob/master/ScreenShots/Investment.png?raw=true)
 
 <br>
 
