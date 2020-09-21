@@ -1,5 +1,5 @@
 # Budgeting-and-Investing-Web-Application
-A web application that allows users to budget their money and access a compound interest calculator
+A web application that allows users to budget their money and access a compound interest calculator to calculate the return on their money through monthly investments
 made with VanillaJS, HTML and CSS
 
 
