@@ -28,15 +28,14 @@ git clone https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Applicati
 
 
 ## Screenshots
-![alt text](https://github.com/RiteshPatel00/Conquer-COVID-19/blob/master/Conquer%20COVID-19/Assets/ScreenShots/MainMenu.png?raw=true)
+![alt text](https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Application/blob/master/Budgeting-and-Investing-Web-Application/ScreenShots/Budget.png?raw=true)
 
 <br>
 
-![alt text](https://github.com/RiteshPatel00/Conquer-COVID-19/blob/master/Conquer%20COVID-19/Assets/ScreenShots/GamePlay.png?raw=true)
+![alt text](https://github.com/RiteshPatel00/Budgeting-and-Investing-Web-Application/blob/master/Budgeting-and-Investing-Web-Application/ScreenShots/Investment.png?raw=true)
 
 <br>
 
-![alt text](https://github.com/RiteshPatel00/Conquer-COVID-19/blob/master/Conquer%20COVID-19/Assets/ScreenShots/GamePlay2.png?raw=true)
 
 
 ## License
